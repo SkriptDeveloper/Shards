@@ -1,0 +1,3 @@
+Settings:
+  Data Save: 60 #Every x seconds, x being 60 by default (PlayerData save)
+  Default Balance: 1000

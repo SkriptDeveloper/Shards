@@ -1,0 +1,26 @@
+#Example Category
+#Shop names should be lowerCamelCase only, don't do stuff like WEAPON_SHOP.
+
+Menu Settings:
+  Title: "&rWEAPONS SHOP"
+  Size: 1 #In rows
+  Filler:
+    Material: STAINED_GLASS_PANE
+    Data: 14
+    Slots: [0, 1, 2, 3, 5, 6, 7, 8]
+
+
+Menu Items:
+  DestroyerSword:
+    Display Item:
+      Material: DIAMOND_SWORD
+      Data: 0
+      Name: "&6&lDestroyer Sword"
+      Lore:
+        - '&c&oThe legendary destroying sword!'
+    Settings:
+      Slot: 4
+      Give Display: false #Give display item
+      Price: 1000 #Shards
+      Commands:
+        - 'kill %player%'

@@ -1,0 +1,7 @@
+name: Shards
+version: ${project.version}
+main: me.skript.shards.Shards
+api-version: 1.17
+softdepend: [ PlaceholderAPI ]
+authors: [ Skript ]
+description: Shards Full Recode

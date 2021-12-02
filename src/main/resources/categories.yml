@@ -1,0 +1,20 @@
+#This is the main menu when a player executes /shard, It will open a gui where they can select which shop to open.
+
+Menu Settings:
+  Title: "&rSHARD SHOPS"
+  Size: 2 #In rows
+  Filler:
+    Material: STAINED_GLASS_PANE
+    Data: 14
+    Slots: [0, 1, 2, 3, 5, 6, 7, 8]
+
+
+Shops:
+  Example:
+    Shop: example #This should be the same as the config name (excluding .yml)
+    Slot: 4 #Slots start from 0
+    Name: "&bExample Shop!"
+    Material: DIAMOND_SWORD
+    Data: 0
+    Lore:
+      - '&7Click to open Example Shop'
