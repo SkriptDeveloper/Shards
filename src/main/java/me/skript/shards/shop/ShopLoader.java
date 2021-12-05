@@ -19,7 +19,7 @@ public class ShopLoader {
 
     private Shards instance;
 
-    private Map<String, YamlConfiguration> yamlConfigurationMap = Maps.newHashMap();
+    private final Map<String, YamlConfiguration> yamlConfigurationMap = Maps.newHashMap();
 
     public ShopLoader(Shards instance) {
         this.instance = instance;

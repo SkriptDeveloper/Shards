@@ -29,8 +29,6 @@ public class ShopPurchaseEvent extends Event implements Cancellable {
         this.cancel = false;
     }
 
-
-
     @Override
     public HandlerList getHandlers() {
         return HANDLER_LIST;

@@ -11,9 +11,13 @@ import java.util.List;
 public class ShopItem {
 
     private ItemStack displayItem;
+
     private boolean giveDisplayItem;
+
     private int itemPrice;
+
     private int itemSlot;
+
     private List<String> commandList;
 
 

@@ -11,14 +11,15 @@ import net.lucaudev.api.item.XMaterial;
 import java.util.List;
 import java.util.Map;
 
+@SuppressWarnings("ConstantConditions")
 @Getter
 public class ShopManager {
 
     private Shards instance;
 
-    private ShopLoader shopFileManager;
+    private final ShopLoader shopFileManager;
 
-    private Map<String, Shop> shopMap = Maps.newHashMap();
+    private final Map<String, Shop> shopMap = Maps.newHashMap();
 
     public ShopManager(Shards instance) {
         this.instance = instance;
@@ -40,10 +41,6 @@ public class ShopManager {
                     new Shop(config.getString("Menu Settings.Title"), config.getInt("Menu Settings.Size"),
                             new Filler(new ItemBuilder(XMaterial.matchXMaterial(config.getString("Menu Settings.Filler.Material")).get()).data(config.getInt("Menu Settings.Filler.Data")).build(), config.getIntegerList("Menu Settings.Filler.Slots")), categoryItems));
         });
-    }
-
-    public void saveCategories() {
-
     }
 
 

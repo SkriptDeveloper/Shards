@@ -11,6 +11,8 @@ public class PlayerData {
 
     private UUID uuid;
 
+    private int purchasedItemCount;
+
     private long balance;
 
     private boolean payEnabled;

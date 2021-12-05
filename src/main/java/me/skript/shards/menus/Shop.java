@@ -33,12 +33,14 @@ public class Shop {
                     clicker.sendMessage(Chat.color("&c&l(!) &cNot enough money (remember to change in config)"));
                     return;
                 }
+
                 ShopPurchaseEvent shopPurchaseEvent = new ShopPurchaseEvent(clicker, shopItem, shop);
                 instance.getServer().getPluginManager().callEvent(shopPurchaseEvent);
 
                 if(shopPurchaseEvent.isCancelled())
                     return;
 
+                playerDataManager.getPlayerData(clicker).setPurchasedItemCount(playerDataManager.getPlayerData(clicker).getPurchasedItemCount() + 1);
                 playerDataManager.getPlayerData(clicker).setBalance(playerDataManager.getPlayerData(clicker).getBalance() - shopItem.getItemPrice());
                 shopItem.getCommandList().forEach(s -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), s.replace("%player%", clicker.getName())));
                 if (shopItem.isGiveDisplayItem()) {

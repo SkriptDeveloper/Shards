@@ -1,0 +1,22 @@
+Global:
+  Offline Player: "&c&l(!) &cThat player is offline"
+
+Commands:
+  Admin:
+    Help:
+      - '&cAdmin Shard Help'
+      - '&c/ashard openshop (shop)'
+      - '&c/ashard reload'
+      - '&c/ashard setshards (player) (amount)'
+      - '&c/ashard addshards (player) (amount)'
+      - '&c/ashard removeshards (player) (amount)'
+  Shard:
+    Balance: "&e&l(!) &eYour balance is &a&l%player_balance_formatted%" # %player_balance% %player_balance_formatted%
+    Pay:
+      Amount: "&c&l(!) &cYou cannot afford this!"
+      Toggled: "&c&l(!) &cThis player cannot receive payments at this time"
+      Sent: "&e&l(!) &eYou have &a&lSENT &e%shards_formatted% shards to &a&n%player%" # %shards_formatted% is the number formatted, %shards% isn't & %player% is the target
+      Received: "&e&l(!) &eYou have &a&lRECEIVED &e%shards_formatted% from &a&n%player%" # Same here except %player% is the sender.
+    Pay Toggle:
+      Enable: "&e&l(!) &eYou will &a&lRECEIVE &eshard payments!"
+      Disable: "&e&l(!) &eYou will &c&lNOT RECEIVE &eshard payments!"
