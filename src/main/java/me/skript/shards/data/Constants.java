@@ -1,10 +1,10 @@
 package me.skript.shards.data;
 
-import java.text.DecimalFormat;
-
 public class Constants {
 
-    public static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#,###.##");
+    public static final String SHARD_BOMB_KEY = "SHARD_BOMB";
 
+    public static final String SHARD_BOMB_DURATION = "SHARD_BOMB_DURATION";
 
+    public static final String SHARD_BOMB_AMOUNT = "SHARD_BOMB_AMOUNT";
 }

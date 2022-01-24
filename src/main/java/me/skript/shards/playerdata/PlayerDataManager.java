@@ -1,6 +1,7 @@
 package me.skript.shards.playerdata;
 
 import com.google.common.collect.Maps;
+import lombok.Getter;
 import lombok.SneakyThrows;
 import me.skript.shards.Shards;
 import org.bukkit.Bukkit;
@@ -11,6 +12,7 @@ import java.io.File;
 import java.util.Map;
 import java.util.UUID;
 
+@Getter
 @SuppressWarnings("ConstantConditions")
 public class PlayerDataManager {
 
@@ -23,25 +25,24 @@ public class PlayerDataManager {
         instance.getServer().getScheduler().runTaskTimerAsynchronously(instance, this::onDisable, 0, 20L * instance.getSettingsFile().getConfig().getInt("Settings.Data Save"));
     }
 
-
     @SneakyThrows
-    public void loadPlayerData(Player player){
+    public void loadPlayerData(Player player) {
         File file = new File(instance.getDataFolder().getAbsoluteFile() + "/player-data/" + player.getUniqueId() + ".yml");
         YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
         PlayerData playerData = getPlayerData(player.getUniqueId());
-        if(!yamlConfiguration.contains("Balance")){
+        if (!yamlConfiguration.contains("Balance")) {
             playerData.setBalance(instance.getSettingsFile().getConfig().getLong("Settings.Default Balance"));
         } else {
             playerData.setBalance(yamlConfiguration.getLong("Balance"));
         }
 
-        if(!yamlConfiguration.contains("Pay Toggle")){
+        if (!yamlConfiguration.contains("Pay Toggle")) {
             playerData.setPayEnabled(true);
         } else {
             playerData.setPayEnabled(yamlConfiguration.getBoolean("Pay Toggle"));
         }
 
-        if(!yamlConfiguration.contains("Purchases")){
+        if (!yamlConfiguration.contains("Purchases")) {
             playerData.setPurchasedItemCount(0);
         } else {
             playerData.setPurchasedItemCount(yamlConfiguration.getInt("Purchases"));
@@ -52,7 +53,7 @@ public class PlayerDataManager {
 
 
     @SneakyThrows
-    public void savePlayerData(Player player){
+    public void savePlayerData(Player player) {
         File file = new File(instance.getDataFolder().getAbsoluteFile() + "/player-data/" + player.getUniqueId() + ".yml");
         YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(file);
         PlayerData playerData = getPlayerData(player);
@@ -62,7 +63,7 @@ public class PlayerDataManager {
         yamlConfiguration.save(file);
     }
 
-    public void onDisable(){
+    public void onDisable() {
         Bukkit.getOnlinePlayers().forEach(this::savePlayerData);
     }
 
@@ -70,23 +71,23 @@ public class PlayerDataManager {
         return playerDataMap.get(player.getUniqueId());
     }
 
-    public PlayerData getPlayerData(UUID uuid){
+    public PlayerData getPlayerData(UUID uuid) {
         return playerDataMap.get(uuid);
     }
 
-    public boolean hasPlayerData(Player player){
+    public boolean hasPlayerData(Player player) {
         return playerDataMap.containsKey(player.getUniqueId());
     }
 
-    public boolean hasPlayerData(UUID uuid){
+    public boolean hasPlayerData(UUID uuid) {
         return playerDataMap.containsKey(uuid);
     }
 
-    public void removePlayerData(Player player){
+    public void removePlayerData(Player player) {
         playerDataMap.remove(player.getUniqueId());
     }
 
-    public void removePlayerData(UUID uuid){
+    public void removePlayerData(UUID uuid) {
         playerDataMap.remove(uuid);
     }
 
@@ -94,7 +95,7 @@ public class PlayerDataManager {
         playerDataMap.put(player.getUniqueId(), new PlayerData(player.getUniqueId()));
     }
 
-    public void createPlayerData(UUID uuid){
+    public void createPlayerData(UUID uuid) {
         playerDataMap.put(uuid, new PlayerData(uuid));
     }
 

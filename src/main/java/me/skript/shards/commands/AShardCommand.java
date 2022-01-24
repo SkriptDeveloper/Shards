@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
 @CommandPermission("shard.admin")
 public class AShardCommand extends BaseCommand {
 
-    private Shards instance;
+    private final Shards instance;
 
     public AShardCommand(Shards instance) {
         this.instance = instance;
@@ -22,7 +22,7 @@ public class AShardCommand extends BaseCommand {
 
     @HelpCommand
     public void helpCommand(CommandSender commandSender) {
-        instance.getLangFile().getConfig().getStringList("Commands.Admin.Help").forEach(s -> commandSender.sendMessage(Chat.color(s)));
+        instance.getLangFile().getConfig().getStringList("Commands.Admin.Help.Message").forEach(s -> commandSender.sendMessage(Chat.color(s)));
     }
 
     @Subcommand("openshop")
@@ -31,36 +31,42 @@ public class AShardCommand extends BaseCommand {
         Shop.getInstance().open((Player) commandSender, Shards.getInstance().getShopManager().getShopByNameIgnoreCase(shop));
     }
 
+    @Subcommand("shardbomb")
+    public void onShardBombCommand(CommandSender commandSender) {
+        commandSender.sendMessage(Chat.color("&c&l(!) &cThis feature is WIP"));
+        //onlinePlayer.getPlayer().getInventory().addItem(ShardBomb.getShardBomb());
+    }
+
     @Subcommand("reload")
-    public void reloadCommand(CommandSender commandSender){
+    public void reloadCommand(CommandSender commandSender) {
         long startTime = System.currentTimeMillis();
         instance.getCategoryFile().reload();
         instance.getLangFile().reload();
         instance.getSettingsFile().reload();
         instance.getShopManager().loadShops();
         instance.getShopManager().getShopFileManager().loadFiles();
-        commandSender.sendMessage(Chat.color("&c&l(!) &cReloaded in " + (System.currentTimeMillis() - startTime) + "ms"));
+        commandSender.sendMessage(Chat.color("&c&l(!) &cReloaded in " + (System.currentTimeMillis() - startTime) + "s"));
     }
 
     @Subcommand("setshards")
-    public void setShardsCommand(CommandSender commandSender, OnlinePlayer onlinePlayer, long amount){
-        PlayerData playerData = instance.getPlayerDataManager().getPlayerData(onlinePlayer.player);
+    public void setShardsCommand(CommandSender commandSender, OnlinePlayer onlinePlayer, long amount) {
+        PlayerData playerData = instance.getPlayerDataManager().getPlayerData(onlinePlayer.getPlayer());
         playerData.setBalance(amount);
-        commandSender.sendMessage(Chat.color("&c&l(!) &cUpdated shards for &e&n" + onlinePlayer.player.getName()));
+        commandSender.sendMessage(Chat.color("&c&l(!) &cUpdated shards for &e&n" + onlinePlayer.getPlayer().getName()));
     }
 
     @Subcommand("addshards|addshard")
-    public void addShardsCommand(CommandSender commandSender, OnlinePlayer onlinePlayer, long amount){
-        PlayerData playerData = instance.getPlayerDataManager().getPlayerData(onlinePlayer.player);
+    public void addShardsCommand(CommandSender commandSender, OnlinePlayer onlinePlayer, long amount) {
+        PlayerData playerData = instance.getPlayerDataManager().getPlayerData(onlinePlayer.getPlayer());
         playerData.setBalance(playerData.getBalance() + amount);
-        commandSender.sendMessage(Chat.color("&c&l(!) &cUpdated shards for &e&n" + onlinePlayer.player.getName()));
+        commandSender.sendMessage(Chat.color("&c&l(!) &cUpdated shards for &e&n" + onlinePlayer.getPlayer().getName()));
     }
 
     @Subcommand("removeshards|removeshard")
-    public void removeShardsCommand(CommandSender commandSender, OnlinePlayer onlinePlayer, long amount){
-        PlayerData playerData = instance.getPlayerDataManager().getPlayerData(onlinePlayer.player);
+    public void removeShardsCommand(CommandSender commandSender, OnlinePlayer onlinePlayer, long amount) {
+        PlayerData playerData = instance.getPlayerDataManager().getPlayerData(onlinePlayer.getPlayer());
         playerData.setBalance(playerData.getBalance() - amount);
-        commandSender.sendMessage(Chat.color("&c&l(!) &cUpdated shards for &e&n" + onlinePlayer.player.getName()));
+        commandSender.sendMessage(Chat.color("&c&l(!) &cUpdated shards for &e&n" + onlinePlayer.getPlayer().getName()));
     }
 
 

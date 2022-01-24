@@ -7,7 +7,8 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
-@Getter @Setter
+@Getter
+@Setter
 public class ShopItem {
 
     private ItemStack displayItem;
@@ -20,8 +21,7 @@ public class ShopItem {
 
     private List<String> commandList;
 
-
-    public ShopItem(ItemStack displayItem, boolean giveDisplayItem, int itemPrice, int itemSlot, List<String> commandList){
+    public ShopItem(ItemStack displayItem, boolean giveDisplayItem, int itemPrice, int itemSlot, List<String> commandList) {
         this.displayItem = displayItem;
         this.giveDisplayItem = giveDisplayItem;
         this.itemPrice = itemPrice;

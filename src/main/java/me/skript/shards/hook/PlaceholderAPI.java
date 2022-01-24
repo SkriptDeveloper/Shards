@@ -6,9 +6,9 @@ import org.bukkit.entity.Player;
 
 public class PlaceholderAPI extends PlaceholderExpansion {
 
-    private Shards instance;
+    private final Shards instance;
 
-    public PlaceholderAPI(Shards instance){
+    public PlaceholderAPI(Shards instance) {
         this.instance = instance;
     }
 
@@ -30,9 +30,9 @@ public class PlaceholderAPI extends PlaceholderExpansion {
 
     @Override
     public String onPlaceholderRequest(Player player, String params) {
-        if(params.equalsIgnoreCase("player_balance")){
+        if (params.equalsIgnoreCase("player_balance")) {
             return String.valueOf(instance.getPlayerDataManager().getPlayerData(player).getBalance());
-        } else if(params.equalsIgnoreCase("player_purchase_count")){
+        } else if (params.equalsIgnoreCase("player_purchase_count")) {
             return String.valueOf(instance.getPlayerDataManager().getPlayerData(player).getPurchasedItemCount());
         }
         return "";

@@ -6,12 +6,12 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
-@Getter @AllArgsConstructor
+@Getter
+@AllArgsConstructor
 public class Filler {
 
-    private ItemStack itemStack;
+    private final ItemStack itemStack;
 
-    private List<Integer> slots;
-
+    private final List<Integer> slots;
 
 }

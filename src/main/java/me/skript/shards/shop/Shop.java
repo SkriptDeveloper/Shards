@@ -8,21 +8,20 @@ import java.util.List;
 @Getter
 public class Shop {
 
-    private String shopTitle;
+    private final String shopTitle;
 
-    private int inventoryRows;
+    private final int inventoryRows;
 
-    private Filler filler;
+    private final Filler filler;
 
-    private List<ShopItem> itemList;
+    private final List<ShopItem> itemList;
 
-    public Shop(String shopTitle, int inventoryRows, Filler filler, List<ShopItem> itemList){
+    public Shop(String shopTitle, int inventoryRows, Filler filler, List<ShopItem> itemList) {
         this.shopTitle = shopTitle;
         this.inventoryRows = inventoryRows;
         this.filler = filler;
         this.itemList = itemList;
     }
-
 
 
 }

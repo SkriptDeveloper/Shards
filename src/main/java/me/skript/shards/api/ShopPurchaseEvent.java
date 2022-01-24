@@ -14,15 +14,15 @@ public class ShopPurchaseEvent extends Event implements Cancellable {
     @Getter
     private static final HandlerList HANDLER_LIST = new HandlerList();
 
-    private Player player;
+    private final Player player;
 
-    private ShopItem purchasedItem;
+    private final ShopItem purchasedItem;
 
-    private Shop shop;
+    private final Shop shop;
 
     private boolean cancel;
 
-    public ShopPurchaseEvent(Player player, ShopItem purchasedItem, Shop shop){
+    public ShopPurchaseEvent(Player player, ShopItem purchasedItem, Shop shop) {
         this.player = player;
         this.purchasedItem = purchasedItem;
         this.shop = shop;

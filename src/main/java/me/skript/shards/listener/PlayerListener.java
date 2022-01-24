@@ -9,21 +9,21 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class PlayerListener implements Listener {
 
-    private Shards instance;
+    private final Shards instance;
 
-    public PlayerListener(Shards instance){
+    public PlayerListener(Shards instance) {
         this.instance = instance;
     }
 
     @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event){
+    public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         instance.getPlayerDataManager().createPlayerData(player.getUniqueId());
         instance.getPlayerDataManager().loadPlayerData(player);
     }
 
     @EventHandler
-    public void onPlayerQuit(PlayerQuitEvent event){
+    public void onPlayerQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
         instance.getPlayerDataManager().savePlayerData(player);
         instance.getPlayerDataManager().removePlayerData(player);

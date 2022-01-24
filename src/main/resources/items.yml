@@ -1,0 +1,22 @@
+#Not fully completed
+
+
+Shard Bomb:
+  Display Item:
+    Material: DIAMOND
+    Data: 0
+    Name: "&bShard Bomb &7&o(Throw)"
+    Lore:
+      - '&3When you throw this item it will land'
+      - '&3and will start throwing out shards that you'
+      - '&3can pick up and claim!'
+      - ''
+      - '&9Information'
+      - '&b&l  &7Duration: 10s'
+      - '&b&l  &7Shard Count: 1-5'
+      - ''
+      - '&7&o(( Throw to activate '
+      - '&7&othe shard bomb! ))'
+  Settings:
+    Duration: 10 #In seconds
+    Shard Count: 1-5

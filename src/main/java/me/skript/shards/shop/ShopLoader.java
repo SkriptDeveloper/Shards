@@ -17,9 +17,9 @@ import java.util.stream.Stream;
 @Setter
 public class ShopLoader {
 
-    private Shards instance;
-
     private final Map<String, YamlConfiguration> yamlConfigurationMap = Maps.newHashMap();
+
+    private Shards instance;
 
     public ShopLoader(Shards instance) {
         this.instance = instance;

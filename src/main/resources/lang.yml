@@ -1,22 +1,42 @@
-Global:
-  Offline Player: "&c&l(!) &cThat player is offline"
 
 Commands:
   Admin:
     Help:
-      - '&cAdmin Shard Help'
-      - '&c/ashard openshop (shop)'
-      - '&c/ashard reload'
-      - '&c/ashard setshards (player) (amount)'
-      - '&c/ashard addshards (player) (amount)'
-      - '&c/ashard removeshards (player) (amount)'
+      Message:
+        - '&cAdmin Shard Help'
+        - '&c/ashard openshop (shop)'
+        - '&c/ashard reload'
+        - '&c/ashard setshards (player) (amount)'
+        - '&c/ashard addshards (player) (amount)'
+        - '&c/ashard removeshards (player) (amount)'
   Shard:
-    Balance: "&e&l(!) &eYour balance is &a&l%player_balance_formatted%" # %player_balance% %player_balance_formatted%
+    Help:
+      Message:
+        - '&bShards Help'
+        - '&b/shard balance &7- Returns Balance'
+        - '&b/shard toggle &7- Toggle shard payments'
+        - '&b/shard pay <player> <amount> &7- Send user shards'
+        - '&b/shard &7- Open shard categories'
+    Balance:
+      Message: "&e&l(!) &eYour balance is &a&l%player_balance_formatted%" # %player_balance% %player_balance_formatted%
     Pay:
-      Amount: "&c&l(!) &cYou cannot afford this!"
-      Toggled: "&c&l(!) &cThis player cannot receive payments at this time"
-      Sent: "&e&l(!) &eYou have &a&lSENT &e%shards_formatted% shards to &a&n%player%" # %shards_formatted% is the number formatted, %shards% isn't & %player% is the target
-      Received: "&e&l(!) &eYou have &a&lRECEIVED &e%shards_formatted% from &a&n%player%" # Same here except %player% is the sender.
+      Amount:
+        Message: "&c&l(!) &cYou cannot afford this!"
+      Toggled:
+        Message: "&c&l(!) &cThis player cannot receive payments at this time"
+      Sent:
+        Message: "&e&l(!) &eYou have &a&lSENT &e%shards_formatted% shards to &a&n%player%" # %shards_formatted% is the number formatted, %shards% isn't & %player% is the target
+      Received:
+        Message: "&e&l(!) &eYou have &a&lRECEIVED &e%shards_formatted% from &a&n%player%" # Same here except %player% is the sender.
     Pay Toggle:
-      Enable: "&e&l(!) &eYou will &a&lRECEIVE &eshard payments!"
-      Disable: "&e&l(!) &eYou will &c&lNOT RECEIVE &eshard payments!"
+      Enable:
+        Message: "&e&l(!) &eYou will &a&lRECEIVE &eshard payments!"
+      Disable:
+        Message: "&e&l(!) &eYou will &c&lNOT RECEIVE &eshard payments!"
+
+Shop:
+  Purchase:
+    Insufficient:
+      Message: "&c&l(!) &cYou don't have enough funds (&7YOUR BALANCE: %shards_formatted%&c)"
+    Purchased:
+      Message: "&e&l(!) &eYou purchased %item% &efor &a%cost% &eshards"

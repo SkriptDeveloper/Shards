@@ -6,7 +6,8 @@ import lombok.Setter;
 
 import java.util.UUID;
 
-@Getter @Setter
+@Getter
+@Setter
 public class PlayerData {
 
     private UUID uuid;
@@ -17,8 +18,7 @@ public class PlayerData {
 
     private boolean payEnabled;
 
-
-    public PlayerData(UUID uuid){
+    public PlayerData(UUID uuid) {
         this.uuid = uuid;
     }
 }
