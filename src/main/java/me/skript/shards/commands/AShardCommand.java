@@ -51,6 +51,11 @@ public class AShardCommand extends BaseCommand {
     @Subcommand("setshards")
     public void setShardsCommand(CommandSender commandSender, OnlinePlayer onlinePlayer, long amount) {
         PlayerData playerData = instance.getPlayerDataManager().getPlayerData(onlinePlayer.getPlayer());
+
+        if(amount < 0) {
+            return;
+        }
+
         playerData.setBalance(amount);
         commandSender.sendMessage(Chat.color("&c&l(!) &cUpdated shards for &e&n" + onlinePlayer.getPlayer().getName()));
     }
@@ -65,6 +70,11 @@ public class AShardCommand extends BaseCommand {
     @Subcommand("removeshards|removeshard")
     public void removeShardsCommand(CommandSender commandSender, OnlinePlayer onlinePlayer, long amount) {
         PlayerData playerData = instance.getPlayerDataManager().getPlayerData(onlinePlayer.getPlayer());
+
+        if(playerData.getBalance() - amount < 0) {
+            return;
+        }
+
         playerData.setBalance(playerData.getBalance() - amount);
         commandSender.sendMessage(Chat.color("&c&l(!) &cUpdated shards for &e&n" + onlinePlayer.getPlayer().getName()));
     }

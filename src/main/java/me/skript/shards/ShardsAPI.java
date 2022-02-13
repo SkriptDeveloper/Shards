@@ -1,7 +1,12 @@
 package me.skript.shards;
 
+import me.skript.shards.playerdata.PlayerData;
 import me.skript.shards.playerdata.PlayerDataManager;
 import org.bukkit.entity.Player;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ShardsAPI {
 
@@ -17,6 +22,12 @@ public class ShardsAPI {
 
     public PlayerDataManager getPlayerDataManager() {
         return Shards.getInstance().getPlayerDataManager();
+    }
+
+    public List<PlayerData> getTop(int number) {
+        return Shards.getInstance().getPlayerDataManager().getPlayerDataMap()
+                .values().stream().sorted(Comparator.comparing(PlayerData::getBalance).reversed())
+                .limit(number).collect(Collectors.toList());
     }
 
 }
